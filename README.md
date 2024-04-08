@@ -53,9 +53,10 @@ THEN I am able to successfully create, update, and delete data in my database
 Link to repository: https://github.com/MarshPupp/E-commerce-Back-End
 
 ## Walkthrough ##
-Here is the link to the walkthrough video: 
+Here is the link to the walkthrough video: https://watch.screencastify.com/v/QH5rkh0OLuqshRNoQLcO
 
 ## Acknowledgements ##
+* Source code was from the Develop folder of the coding-boot-camp/fantastic-umbrella repository. Linked here: https://github.com/coding-boot-camp/fantastic-umbrella
 * Insomnia docs were referenced (https://docs.insomnia.rest/insomnia/get-started)
 * MDN docs were referenced (https://developer.mozilla.org/en-US/)
 * W3Schools were referenced (https://www.w3schools.com/css/default.asp)

@@ -6,9 +6,10 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 // get all products
 router.get('/', async (req, res) => {
   try {
+    //console.log('get products')
     const productData = await Product.findAll({
-      include: [{ model: Category, attributes: ['category_name'] }, { model: Tag, attributes: ['tag_name'] }]
-    });
+      include: [{ model: Category}, { model: Tag, through: ProductTag }],
+});
     return res.status(200).json(productData);
   } catch (err) {
     res.status(404).json(err);
@@ -45,7 +46,7 @@ router.post('/', async (req, res) => {
   Product.create(req.body)
     .then((product) => {
       // if there's product tags, we need to create pairings to bulk create in the ProductTag model
-      if (req.body.tagIds.length) {
+      if (req.body.tagIds && req.body.tagsIds.length) {
         const productTagIdArr = req.body.tagIds.map((tag_id) => {
           return {
             product_id: product.id,
@@ -117,7 +118,7 @@ router.delete('/:id', async (req, res) => {
       res.status(404).json({ message: 'Could not find Product that matched given id.' });
       return;
     }
-    res.status(200).json(productData);
+    res.status(200).json({ message: "Product deleted!"});
   } catch (err) {
     res.status(500).json(err);
   }
